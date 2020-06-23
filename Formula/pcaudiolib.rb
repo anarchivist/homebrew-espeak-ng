@@ -4,8 +4,11 @@ class Pcaudiolib < Formula
   url "https://github.com/espeak-ng/pcaudiolib/archive/1.1.tar.gz"
   sha256 "699a5a347b1e12dc5b122e192e19f4db01621826bf41b9ebefb1cbc63ae2180b"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
     system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
