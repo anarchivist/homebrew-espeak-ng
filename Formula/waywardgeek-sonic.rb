@@ -1,4 +1,4 @@
-class Sonic < Formula
+class WaywardgeekSonic < Formula
   desc "Simple library to speed up or slow down speech"
   homepage "https://github.com/waywardgeek/sonic"
   head "https://github.com/waywardgeek/sonic.git"
