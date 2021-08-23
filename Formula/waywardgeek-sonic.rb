@@ -6,12 +6,7 @@ class WaywardgeekSonic < Formula
   depends_on "fftw"
 
   def install
-    inreplace "Makefile" do |s|
-      s.gsub! "libsonic.so.$(LIB_TAG)", "libsonic.$(LIB_TAG).dylib"
-      s.gsub! "libsonic.so.0", "libsonic.0.dylib"
-      s.gsub! "libsonic.so", "libsonic.dylib"
-      s.change_make_var! "PREFIX", "#{prefix}"
-    end
+    inreplace "Makefile", "PREFIX=/usr/local", "PREFIX=#{prefix}"
     system "make"
     system "make", "install"
   end
