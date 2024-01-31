@@ -1,14 +1,16 @@
 class Pcaudiolib < Formula
   desc "Portable C Audio Library"
   homepage "https://github.com/espeak-ng/pcaudiolib/"
-  url "https://github.com/espeak-ng/pcaudiolib/archive/1.1.tar.gz"
-  sha256 "699a5a347b1e12dc5b122e192e19f4db01621826bf41b9ebefb1cbc63ae2180b"
+  url "https://codeload.github.com/espeak-ng/espeak-ng/tar.gz/refs/tags/1.51"
+  head "https://github.com/espeak-ng/pcaudiolib.git"
+  sha256 "f0e028f695a8241c4fa90df7a8c8c5d68dcadbdbc91e758a97e594bbb0a3bdbf"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
+    system "ln", "-s", "./CHANGELOG.md", "./ChangeLog"
     system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
